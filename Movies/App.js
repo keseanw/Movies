@@ -26,7 +26,7 @@ class App extends Component {
     dispatch(actionCreators.fetchPosts())
   }
 
-  renderPost = ({id, title, body}, i) => {
+  renderPost = ({id, title, overview}, i) => {
     return (
       <View
         key={id}
@@ -40,7 +40,7 @@ class App extends Component {
             {title}
           </Text>
           <Text style={styles.postBody}>
-            {body}
+            {overview}
           </Text>
         </View>
       </View>
@@ -71,7 +71,7 @@ class App extends Component {
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container}>
-          {posts.map(this.renderPost)}
+          {posts.results.map(this.renderPost)}
         </ScrollView>
         <TouchableOpacity
           style={styles.button}

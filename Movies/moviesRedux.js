@@ -9,7 +9,8 @@ export const types = {
       dispatch({type: types.FETCH_POSTS_REQUEST})
   
       try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+        //const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+        const response = await fetch('https://api.themoviedb.org/3/search/movie?api_key=8b1949fbfa2586d586f2768e4b127dc7&query=anchorman')
         const posts = await response.json()
   
         dispatch({type: types.FETCH_POSTS_RESPONSE, payload: posts})
@@ -28,7 +29,7 @@ export const types = {
   const initialState = {
     loading: true,
     error: false,
-    posts: [],
+    posts: {},
   }
   
   export const reducer = (state = initialState, action) => {
